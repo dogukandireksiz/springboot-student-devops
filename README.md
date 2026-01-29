@@ -3,6 +3,7 @@ Spring Boot Student DevOps Backend
 This project is a Spring Boot backend application designed to practice RESTful API development, Layered Architecture, and DevOps practices (Docker, Containerization).
 
 It provides basic CRUD operations for student management and works with a **PostgreSQL** database. The project is ready to run both in a local development environment and as a containerized application using Docker and Docker Compose.
+
 🚀 Technologies
 
 * Language: Java (JDK 17+)
@@ -12,7 +13,7 @@ It provides basic CRUD operations for student management and works with a **Post
 * Build Tool: Maven
 * DevOps & Containerization: Docker, Docker Compose
 
-## 📂 Project Architecture
+📂 Project Architecture
 
 The project follows a clean layered architecture:
 
