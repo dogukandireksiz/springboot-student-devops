@@ -1,117 +1,108 @@
-# Spring Boot Student Backend
+Spring Boot Student DevOps Backend
 
-A Spring Boot backend application built to practice RESTful API development,
-Spring Data JPA, and clean layered architecture.
+This project is a Spring Boot backend application designed to practice RESTful API development, Layered Architecture, and DevOps practices (Docker, Containerization).
 
-This repository is part of my **Backend & DevOps learning journey** and will be
-extended with containerization and CI/CD practices.
+It provides basic CRUD operations for student management and works with a **PostgreSQL** database. The project is ready to run both in a local development environment and as a containerized application using Docker and Docker Compose.
+🚀 Technologies
 
+* Language: Java (JDK 17+)
+* Framework: Spring Boot
+* Database: PostgreSQL
+* ORM: Spring Data JPA
+* Build Tool: Maven
+* DevOps & Containerization: Docker, Docker Compose
 
-## 📌 Overview
+## 📂 Project Architecture
 
-This project provides a simple backend service for managing students.
-It demonstrates how a typical Spring Boot application is structured
-using controllers, services, repositories, and entities.
-
-
-
-## 🚀 Technologies
-
-- Java
-- Spring Boot
-- Spring Data JPA
-- Maven
-- PostgreSQL
-- RESTful APIs
-
-
-
-## 🧱 Project Architecture
-
-The project follows a **layered architecture**:
-
+The project follows a clean layered architecture:
 
 
 src/main/java/com/example/demo
 │
-├── controller        # REST endpoints
-├── services          # Business logic interfaces
-├── services/Implement# Service implementations
-├── repository        # JPA repositories
-├── entities          # Database entities
-├── dto               # Data Transfer Objects
+├── controller      # REST API Endpoints
+├── services        # Business Logic Interfaces
+├── services/impl   # Service Implementations
+├── repository      # Data Access Layer (JPA)
+├── entities        # Database Entities
+└── dto             # Data Transfer Objects
 
 
+⚙️ Installation & Running
 
+You can run the project using two methods: **Via Docker (Recommended)** or **Local Installation**.
 
+Method 1: Run with Docker Compose (Quick & Easy)
 
-## ✨ Features
+If you have Docker and Docker Compose installed, you can spin up the application and database with a single command without manual configuration.
 
-- CRUD operations for Student entity
-- RESTful API design
-- DTO-based data transfer
-- JPA-based database access
-- Clean separation of concerns
-
-
-
-## 🛠️ Running the Application
-
-### 1️⃣ Clone the repository
+1. Clone the repository:
 bash
 git clone https://github.com/dogukandireksiz/springboot-student-devops.git
 cd springboot-student-devops
 
 
-### 2️⃣ Configure the database
 
-Update database credentials in:
-
-
-src/main/resources/application.properties
+2. Start the application and database:
+bash
+docker-compose up -d --build
 
 
-### 3️⃣ Run the application
 
+(This command prepares and starts both PostgreSQL and the Spring Boot application in containers.)
+3. Access the application:
+* API Base URL: http://localhost:8080
+
+
+Method 2: Local Installation
+
+If you prefer to run it directly via your IDE or terminal without Docker:
+
+1. Ensure you have a running **PostgreSQL** instance.
+2. Open src/main/resources/application.properties and update it with your database credentials:
+properties
+spring.datasource.url=jdbc:postgresql://localhost:5432/studentdb
+spring.datasource.username=your_username
+spring.datasource.password=your_password
+
+
+
+
+3. Run the application:
 bash
 ./mvnw spring-boot:run
 
 
-The application will start on:
-
-
-http://localhost:8080
 
 
 
+🔌 API Usage
 
-## 🎯 Project Goals
+Once the application is running, you can test the endpoints using Postman or cURL:
 
-* Strengthen backend fundamentals with Spring Boot
-* Understand real-world project structure
-* Prepare a base project for DevOps practices such as:
+Method,     Endpoint,                       Description
+GET         /rest/api/student/get           List all students
+GET         /rest/api/student/get/{id}      Get a student by ID
+POST        /rest/api/student/save          Add a new student
+PUT         /rest/api/student/put/{id}      Update an existing student
+DELETE      /rest/api/student/delete/{id}   Delete a student
 
-  * Docker
-  * Docker Compose
-  * CI/CD pipelines (GitHub Actions)
+(Note: Check the `StudentController` class if your base path differs, e.g., `/api/v1/students`.)
 
+🔮 Roadmap & Future Plans
 
-## 🔮 Planned Improvements
+[x] Docker integration (Completed)
+[x] PostgreSQL connection via Docker Compose (Completed)
+[ ] CI/CD Pipeline integration (GitHub Actions / Jenkins)
+[ ] API Documentation with Swagger / OpenAPI
+[ ] Unit and Integration testing
 
-* Docker & Docker Compose support
-* Environment-based configuration
-* CI/CD pipeline integration
-* Authentication & Authorization
-* API documentation (Swagger / OpenAPI)
+👤 Author
 
+Doğukan Direksiz
 
+GitHub: [dogukandireksiz](https://github.com/dogukandireksiz)
 
-## 👤 Author
-
-**Doğukan Direksiz**
-
-GitHub: https://github.com/dogukandireksiz
-
+This project is part of a DevOps and Backend learning journey. Contributions and feedback are welcome.*
 
 
 
